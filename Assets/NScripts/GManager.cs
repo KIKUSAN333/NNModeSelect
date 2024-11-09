@@ -52,14 +52,33 @@ public class GManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        
+
         else
         {
-        
+
             Debug.Log("GManager_Destroy");
             Destroy(this.gameObject);
         }
     }
+
+    public void InitVals()
+    {
+        maxScore = 0;
+        ratioScore = 0;
+
+        songID = 0;
+
+        StartTime = 0;
+
+        combo = 0;
+        score = 0;
+
+        perfect = 0;
+        great = 0;
+        bad = 0;
+        miss = 0;
+    }
+
 }
 
 /*
