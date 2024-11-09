@@ -9,6 +9,6 @@ public class GameCreditManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);//ƒm[ƒc‚ÌˆÚ“®
+        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);//•¶š‚ÌˆÚ“®
     }
 }

@@ -9,7 +9,7 @@ public class Data
     public string name;
     public int maxBlock;
     public int BPM;
-    public int offset;
+    public float offset;
     public Note[] notes;
 
 }

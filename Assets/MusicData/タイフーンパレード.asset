@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicName: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
   MusicLevel: 0
-  MusicImage: {fileID: 21300000, guid: 5c95f7e32bb893844b327d1f71b7faae, type: 3}
+  MusicImage: {fileID: 21300000, guid: c84796e1ab40c5d4495f7c4b14d1dd85, type: 3}
   Music: {fileID: 8300000, guid: 7d1c178c09204f04da636e8be2d882c5, type: 3}
