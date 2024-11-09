@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 [Serializable]
@@ -24,7 +25,7 @@ public class Note
 public class NotesManager : MonoBehaviour
 {
     public int noteNum;
-    private string songName;
+    [SerializeField] private string songName;
 
     public List<int> LaneNum = new List<int>();
     public List<int> NoteType = new List<int>();
@@ -39,7 +40,6 @@ public class NotesManager : MonoBehaviour
         Debug.Log(GManager.instance);
         NotesSpeed = GManager.instance.notesSpeed;
         noteNum = 0;
-        songName = "2_23_AM";
         Load(songName);
     }
 

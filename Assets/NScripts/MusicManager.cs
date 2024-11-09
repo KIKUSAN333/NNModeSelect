@@ -6,12 +6,13 @@ public class MusicManager : MonoBehaviour
 {
     AudioSource audio;
     AudioClip Music;
-    string songName;
     bool played;
+
+    [SerializeField] private string songName;
+
     void Start()
     {
         GManager.instance.Start = false;
-        songName = "2_23_AM";  //読み込むファイルの名前を設定
         audio = GetComponent<AudioSource>();
         Music = (AudioClip)Resources.Load("Musics/" + songName);  //変数Musicにオーディオファイルを入れる
         played = false;

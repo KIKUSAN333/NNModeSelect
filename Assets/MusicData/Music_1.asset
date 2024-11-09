@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicName: Music_1
   MusicLevel: 10
-  MusicImage: {fileID: 0}
+  MusicImage: {fileID: 21300000, guid: 5c95f7e32bb893844b327d1f71b7faae, type: 3}
   Music: {fileID: 8300000, guid: 327d342e89119e34097c9338f26e7444, type: 3}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb9e76fe06e5d34ea24bed11984003d, type: 3}
-  m_Name: "\u9B3C\u59EB"
+  m_Name: maou_short_14_shining_star
   m_EditorClassIdentifier: 
-  MusicName: "\u9B3C\u59EB"
+  MusicName: "\u30B7\u30E3\u30A4\u30CB\u30F3\u30B0\u30B9\u30BF\u30FC"
   MusicLevel: 0
-  MusicImage: {fileID: 21300000, guid: a718113c339a23f40a7359f47953e9d4, type: 3}
-  Music: {fileID: 8300000, guid: 81f2766d468acec4c83e3d31a1d20918, type: 3}
+  MusicImage: {fileID: 21300000, guid: 4e608165a9274b04f86a0d7b9eaca2ce, type: 3}
+  Music: {fileID: 8300000, guid: 1da2ab286fe6df7488229a69901c2b4b, type: 3}

@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159cc44541129ce4cb084d11dfe19d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songName: 2_23_AM
+  songName: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
 --- !u!4 &92342884
 Transform:
   m_ObjectHideFlags: 0
@@ -3149,7 +3149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteNum: 0
-  songName: 2_23_AM
+  songName: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
   LaneNum: 
   NoteType: 
   NotesTime:

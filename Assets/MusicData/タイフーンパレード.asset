@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb9e76fe06e5d34ea24bed11984003d, type: 3}
-  m_Name: "\u9B3C\u59EB"
+  m_Name: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
   m_EditorClassIdentifier: 
-  MusicName: "\u9B3C\u59EB"
+  MusicName: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
   MusicLevel: 0
-  MusicImage: {fileID: 21300000, guid: a718113c339a23f40a7359f47953e9d4, type: 3}
-  Music: {fileID: 8300000, guid: 81f2766d468acec4c83e3d31a1d20918, type: 3}
+  MusicImage: {fileID: 21300000, guid: 5c95f7e32bb893844b327d1f71b7faae, type: 3}
+  Music: {fileID: 8300000, guid: 7d1c178c09204f04da636e8be2d882c5, type: 3}

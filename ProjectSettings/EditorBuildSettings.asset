@@ -15,12 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Music_1.unity
     guid: 57bb89ea1da409548914f91593e003a4
   - enabled: 1
-    path: Assets/Scenes/GameCreditScene.unity
-    guid: 45df44c618abfa4438d3b89482144930
+    path: "Assets/Scenes/\u9B3C\u59EB.unity"
+    guid: bc1c373dc1fcde442b00cc37b4f3679f
+  - enabled: 1
+    path: "Assets/Scenes/\u9B3C\u59EB(HARD).unity"
+    guid: c75c6e67b2e0fa14c9838ba247216f00
   - enabled: 1
     path: Assets/Scenes/Le-Cirque-du-Diable.unity
-    guid: 79bb8d1bdf6d40c408ff9553c69e2759
+    guid: a5c77db212f00f8418bf2dff14fadf27
   - enabled: 1
-    path: "Assets/Scenes/\u9B3C\u59EB.unity"
-    guid: f301efea3e498c749aec4fd107b18fc5
+    path: "Assets/Scenes/\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9.unity"
+    guid: 8b1daf6313ed0f64c9cd81f27a68550d
+  - enabled: 1
+    path: "Assets/Scenes/\u30B7\u30E3\u30A4\u30CB\u30F3\u30B0\u30B9\u30BF\u30FC.unity"
+    guid: c395d1396510fa34b8613f15ef487e18
+  - enabled: 1
+    path: Assets/Scenes/GameCreditScene.unity
+    guid: 45df44c618abfa4438d3b89482144930
   m_configObjects: {}

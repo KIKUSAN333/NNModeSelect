@@ -8,8 +8,8 @@ public class RayCastGenerator : MonoBehaviour
     [SerializeField] private KeyCode inputKey;
     [SerializeField] private float raycastDistance = 9.0f;
 
-    AudioSource audio;
-    [SerializeField] AudioClip hitSound;
+    public AudioSource audio;
+    [SerializeField] private AudioClip hitSound;
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class RayCastGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(inputKey))
         {
+            audio.PlayOneShot(hitSound);
             GameObject hitObject = GetNotesOnLine();
             Notes notes = null;
             if (hitObject != null)
