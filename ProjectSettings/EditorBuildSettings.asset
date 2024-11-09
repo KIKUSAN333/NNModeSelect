@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MusicSelectScene.unity
     guid: 729bbec3cb3a1b645a57b61ccaab94aa
   - enabled: 1
-    path: Assets/Scenes/Music_1.unity
+    path: "Assets/Scenes/2\uFF1A23 AM.unity"
     guid: 57bb89ea1da409548914f91593e003a4
   - enabled: 1
     path: "Assets/Scenes/\u9B3C\u59EB.unity"
