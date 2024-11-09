@@ -37,6 +37,7 @@ public class NotesManager : MonoBehaviour
 
     void OnEnable()
     {
+        GManager.instance.InitVals();
         Debug.Log(GManager.instance);
         NotesSpeed = GManager.instance.notesSpeed;
         noteNum = 0;
@@ -60,7 +61,6 @@ public class NotesManager : MonoBehaviour
             NotesTime.Insert(i, time);
             LaneNum.Add(inputJson.notes[i].block);
             NoteType.Add(inputJson.notes[i].type);
-            Debug.Log(NotesTime[i]);
             float x = NotesTime[i] * NotesSpeed;
             NotesObj.Add(Instantiate(noteObj, new Vector3(x-3, (inputJson.notes[i].block)*1.73f - 2.65f, 0), Quaternion.identity));
         }
