@@ -6,21 +6,21 @@ using UnityEngine;
 public class RayCastGenerator : MonoBehaviour
 {
     [SerializeField] private KeyCode inputKey;
-    [SerializeField] private float raycastDistance = 9.0f;
+    [SerializeField] private LayerMask mask;
 
-    public AudioSource audio;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip hitSound;
 
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(inputKey))
         {
-            audio.PlayOneShot(hitSound);
+            audioSource.PlayOneShot(hitSound);
             GameObject hitObject = GetNotesOnLine();
             Notes notes = null;
             if (hitObject != null)
@@ -42,28 +42,24 @@ public class RayCastGenerator : MonoBehaviour
     {
         Vector3 rayOrigin = transform.position;
 
-        RaycastHit hitRight;
-        Vector3 rayDirection = transform.right;
-        bool hitRightSuccess = Physics.Raycast(rayOrigin, rayDirection, out hitRight, raycastDistance);
+        RaycastHit2D hitRight = Physics2D.Raycast(rayOrigin, Vector2.right, Mathf.Infinity, mask);
 
-        RaycastHit hitLeft;
-        rayDirection *= -1;
-        bool hitLeftSuccess = Physics.Raycast(rayOrigin, rayDirection, out hitLeft, raycastDistance);
+        RaycastHit2D hitLeft = Physics2D.Raycast(rayOrigin, Vector2.left, Mathf.Infinity, mask);
 
-        if (!hitRightSuccess && !hitLeftSuccess) return null;
-        if (hitRightSuccess && !hitLeftSuccess) return hitRight.transform.gameObject;
-        if (!hitRightSuccess && hitLeftSuccess) return hitLeft.transform.gameObject;
+        if (hitRight.collider == null && hitLeft.collider == null) return null;
+        if (hitRight.collider != null && hitLeft.collider == null) return hitRight.collider.gameObject;
+        if (hitRight.collider == null && hitLeft.collider != null) return hitLeft.collider.gameObject;
 
-        RaycastHit hit = Mathf.Min(hitLeft.distance, hitRight.distance)==hitLeft.distance ? hitLeft : hitRight;
+        RaycastHit2D hit = Mathf.Min(hitLeft.distance, hitRight.distance)==hitLeft.distance ? hitLeft : hitRight;
 
-        return hit.transform.gameObject;
+        return hit.collider.gameObject;
     }
 
     private GameObject GetNotesOnLine()
     {
-        Collider[] collider = Physics.OverlapBox(transform.position, new Vector3(0.1f, 0.1f, 0.1f));
-        if (collider.Length == 0) return null;
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0f, mask);
+        if (colliders.Length == 0) return null;
 
-        return collider[0].gameObject;
+        return colliders[0].gameObject;
     }
 }

@@ -15,14 +15,14 @@ public class MusicSelect : MonoBehaviour
     [SerializeField] Text MusicLevelText;
     [SerializeField] Image MusicImage;
 
-    AudioSource audio;
+    AudioSource audioSource;
 
     int SelectMusicNumber;//選択曲の変数
 
     private void Start()//初期化
     {
         SelectMusicNumber = 0;
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         MusicUpdata();
     }
 
@@ -57,8 +57,8 @@ public class MusicSelect : MonoBehaviour
     private void MusicUpdata()
     {
 
-        audio.clip = DataBase.MusicData[SelectMusicNumber].Music;//データベースから楽曲を持ってくる
-        audio.Play();
+        audioSource.clip = DataBase.MusicData[SelectMusicNumber].Music;//データベースから楽曲を持ってくる
+        audioSource.Play();
 
         //データベースから楽曲名,楽曲レベル,楽曲画像を持ってくる
         MusicNameText.text = DataBase.MusicData[SelectMusicNumber].MusicName;

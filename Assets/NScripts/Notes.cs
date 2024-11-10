@@ -111,7 +111,6 @@ public class Notes : MonoBehaviour
 
     private void DeleteThis()
     {
-        gameObject.SetActive(false);
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
