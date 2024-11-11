@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// タッチパッドに対応させるためのクラス
@@ -13,20 +15,19 @@ public class Button4TouchPad : MonoBehaviour
 
     private FlushLight _flushLight = null;
     private RayCastGenerator _raycastGenerator = null;
-
-    private Button button;
+    private EventTrigger _eventTrigger = null;
 
     private void Start()
     {
         GetMyComponents();
-        SetListeners2Button();
+        SetListeners();
     }
 
     private void GetMyComponents()
     {
-        button = GetComponent<Button>();
         _flushLight = GetFlushLight(_laneNum);
         _raycastGenerator = GetRaycastGen(_laneNum);
+        _eventTrigger = gameObject.AddComponent<EventTrigger>();
     }
 
     private FlushLight GetFlushLight(int num)
@@ -41,9 +42,17 @@ public class Button4TouchPad : MonoBehaviour
         return go.GetComponent<RayCastGenerator>();
     }
 
-    private void SetListeners2Button()
+    private void SetListeners()
     {
-        button.onClick.AddListener(() => _raycastGenerator.ProcessKeyDown_RcGen());
-        button.onClick.AddListener(() => _flushLight.colorChange());
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((data) => { PointerDown(); });
+        _eventTrigger.triggers.Add(entry);
+    }
+
+    private void PointerDown()
+    {
+        _raycastGenerator.ProcessKeyDown_RcGen();
+        _flushLight.colorChange();
     }
 }
