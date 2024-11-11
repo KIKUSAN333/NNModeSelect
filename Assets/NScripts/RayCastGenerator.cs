@@ -18,24 +18,29 @@ public class RayCastGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(inputKey))
-        {
-            audioSource.PlayOneShot(hitSound);
-            GameObject hitObject = GetNotesOnLine();
-            Notes notes = null;
-            if (hitObject != null)
-            {
-                notes = hitObject.GetComponent<Notes>();
-                notes.ProcessKeyDown(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
-                return;
-            }
+        if (Input.GetKeyDown(inputKey)) ProcessKeyDown_RcGen();
+    }
 
-            hitObject = ShootRaycastInXDirection();
-            if (hitObject == null) return;
-            
+    /// <summary>
+    /// キー入力時のメソッド．OverlapとRaycastによってノーツを取得し，そのノーツにキー入力イベントを実行させる．
+    /// </summary>
+    public void ProcessKeyDown_RcGen()
+    {
+        audioSource.PlayOneShot(hitSound);
+        GameObject hitObject = GetNotesOnLine();
+        Notes notes = null;
+        if (hitObject != null)
+        {
             notes = hitObject.GetComponent<Notes>();
             notes.ProcessKeyDown(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+            return;
         }
+
+        hitObject = ShootRaycastInXDirection();
+        if (hitObject == null) return;
+
+        notes = hitObject.GetComponent<Notes>();
+        notes.ProcessKeyDown(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
     }
 
     private GameObject ShootRaycastInXDirection()
@@ -50,7 +55,7 @@ public class RayCastGenerator : MonoBehaviour
         if (hitRight.collider != null && hitLeft.collider == null) return hitRight.collider.gameObject;
         if (hitRight.collider == null && hitLeft.collider != null) return hitLeft.collider.gameObject;
 
-        RaycastHit2D hit = Mathf.Min(hitLeft.distance, hitRight.distance)==hitLeft.distance ? hitLeft : hitRight;
+        RaycastHit2D hit = Mathf.Min(hitLeft.distance, hitRight.distance) == hitLeft.distance ? hitLeft : hitRight;
 
         return hit.collider.gameObject;
     }

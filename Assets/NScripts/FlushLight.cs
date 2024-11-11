@@ -56,7 +56,10 @@ public class FlushLight : MonoBehaviour
         alfa -= Speed * Time.deltaTime;
     }
 
-    void colorChange()
+    /// <summary>
+    /// 入力を受けてレーンを光らせるメソッド．どのレーンが入力されたかを分かりやすくする．
+    /// </summary>
+    public void colorChange()
     {
         alfa = 0.3f;
         rend.material.color = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b,alfa);
