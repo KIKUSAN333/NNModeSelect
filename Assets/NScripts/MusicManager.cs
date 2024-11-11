@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !played) StartMusic();
+        if (Input.GetMouseButtonDown(0) && !played) StartMusic();
 
         if (isFinished()) LoadResultPage();
     }
