@@ -19,6 +19,8 @@ public class RayCastGenerator : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(inputKey)) ProcessKeyDown_RcGen();
+        if (Input.GetKey(inputKey)) ProcessKeyHold_RcGen();
+        if (Input.GetKeyUp(inputKey)) ProcessKeyUp_RcGen();
     }
 
     /// <summary>
@@ -32,15 +34,67 @@ public class RayCastGenerator : MonoBehaviour
         if (hitObject != null)
         {
             notes = hitObject.GetComponent<Notes>();
-            notes.ProcessKeyDown(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
-            return;
+            if (notes != null)
+            {
+                notes.ProcessHitRaycast(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+                return;
+            }
         }
 
         hitObject = ShootRaycastInXDirection();
         if (hitObject == null) return;
 
         notes = hitObject.GetComponent<Notes>();
-        notes.ProcessKeyDown(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+        if (notes == null) return;
+
+        notes.ProcessHitRaycast(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+    }
+
+    /// <summary>
+    /// キーホールド時に判定線上をノーツが通ったときの処理．ホールドノーツの途中のノーツ用．
+    /// </summary>
+    public void ProcessKeyHold_RcGen()
+    {
+        GameObject hitObject = GetNotesOnLine();
+        HoldMidNotes notes = null;
+        if (hitObject != null)
+        {
+            notes = hitObject.GetComponent<HoldMidNotes>();
+            if (notes != null)
+            {
+                notes.ProcessInputEvent();
+                audioSource.PlayOneShot(hitSound);
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// キーを離した時の処理．ホールドノーツの最後のノーツ用．
+    /// </summary>
+    public void ProcessKeyUp_RcGen()
+    {
+        GameObject hitObject = GetNotesOnLine();
+        HoldEndNotes notes = null;
+        if (hitObject != null)
+        {
+            notes = hitObject.GetComponent<HoldEndNotes>();
+            if (notes != null)
+            {
+                notes.ProcessInputEvent(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+                audioSource.PlayOneShot(hitSound);
+                return;
+            }
+        }
+
+        hitObject = ShootRaycastInXDirection();
+        if (hitObject == null) return;
+
+        notes = hitObject.GetComponent<HoldEndNotes>();
+        if (notes == null) return;
+
+        notes.ProcessInputEvent(Math.Abs(hitObject.transform.position.x - this.transform.position.x));
+        audioSource.PlayOneShot(hitSound);
     }
 
     private GameObject ShootRaycastInXDirection()

@@ -3750,21 +3750,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteNum: 0
   songName: "\u30BF\u30A4\u30D5\u30FC\u30F3\u30D1\u30EC\u30FC\u30C9"
-  LaneNum: 
-  NoteType: 
-  NotesTime:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  NotesObj: []
   noteObj: {fileID: 5644982062484544466, guid: 45b5bbf4143d1eb4fa0f011fdad3280b, type: 3}
+  holdStartNoteObj: {fileID: 5644982062484544466, guid: a44fec423cde88749adbb12abd0c7cf1, type: 3}
+  holdEndNoteObj: {fileID: 5644982062484544466, guid: c026b72096e0162408c7b8a540775950, type: 3}
+  holdMidNoteObj: {fileID: 5644982062484544466, guid: 45c391d9fcbf14c46adf4d76244f6fc5, type: 3}
+  holdAssistLine: {fileID: 5644982062484544466, guid: 113034bb72975a24f905c8ace03b5779, type: 3}
 --- !u!1 &6009370554510728325
 GameObject:
   m_ObjectHideFlags: 0
