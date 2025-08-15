@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource audioSource;
     AudioClip Music;
     bool played;
 
@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         GManager.instance.Start = false;
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         Music = (AudioClip)Resources.Load("Musics/" + songName);  //変数Musicにオーディオファイルを入れる
         played = false;
     }
@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !played) StartMusic();
+        if (Input.GetMouseButtonDown(0) && !played) StartMusic();
 
         if (isFinished()) LoadResultPage();
     }
@@ -32,12 +33,12 @@ public class MusicManager : MonoBehaviour
         GManager.instance.Start = true;
         GManager.instance.StartTime = Time.time;
         played = true;
-        audio.PlayOneShot(Music);
+        audioSource.PlayOneShot(Music);
     }
 
     private bool isFinished()
     {
-        return !audio.isPlaying && played;
+        return !audioSource.isPlaying && played;
     }
 
     private void LoadResultPage()

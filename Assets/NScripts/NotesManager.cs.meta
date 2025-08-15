@@ -3,7 +3,11 @@ guid: d250684937edf144ca8328483a83f7ea
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - noteObj: {fileID: 5644982062484544466, guid: 45b5bbf4143d1eb4fa0f011fdad3280b, type: 3}
+  - holdStartNoteObj: {fileID: 5644982062484544466, guid: a44fec423cde88749adbb12abd0c7cf1, type: 3}
+  - holdEndNoteObj: {fileID: 5644982062484544466, guid: c026b72096e0162408c7b8a540775950, type: 3}
+  - holdMidNoteObj: {fileID: 5644982062484544466, guid: 45c391d9fcbf14c46adf4d76244f6fc5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
